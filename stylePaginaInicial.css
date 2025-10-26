@@ -1,0 +1,155 @@
+/* Importando uma fonte do Google Fonts para um visual mais agradável */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Indie+Flower&display=swap');
+
+/* Reset básico para melhor consistência entre navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Fonte principal */
+    background-color: #fce4ec; /* Rosa claro de fundo */
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ocupa a altura total da viewport */
+    padding: 20px;
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    width: 100%;
+    overflow: hidden; /* Garante que os cantos arredondados sejam respeitados */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Seção de Cabeçalho (Título principal) */
+.hero-section {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); /* Degradê suave */
+    color: white;
+    padding: 40px 30px;
+    text-align: center;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.hero-content h1 {
+    font-family: 'Indie Flower', cursive; /* Fonte mais "romântica" para o título */
+    font-size: 3.2em; /* Tamanho maior para o título */
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero-content .subtitle {
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+/* Seção de Conteúdo (Imagem + Texto) */
+.content-section {
+    display: flex;
+    flex-direction: row; /* Imagem e texto lado a lado */
+    padding: 30px;
+    gap: 30px; /* Espaçamento entre a imagem e o texto */
+    align-items: flex-start; /* Alinha o conteúdo ao topo */
+}
+
+.image-area, .text-area {
+    flex: 1; /* Faz com que ambos ocupem o mesmo espaço disponível */
+}
+
+.main-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out; /* Efeito ao passar o mouse */
+}
+
+.main-image:hover {
+    transform: scale(1.02); /* Leve zoom ao passar o mouse */
+}
+
+.text-area h2 {
+    font-family: 'Poppins', sans-serif;
+    color: #e91e63; /* Rosa mais escuro para o subtítulo */
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
+
+.text-area p {
+    margin-bottom: 1em;
+    font-size: 1.05em;
+    color: #555;
+}
+
+/* Seção de Navegação (Botão) */
+.navigation-section {
+    text-align: center;
+    padding: 20px 30px 40px;
+}
+
+#nextPageButton {
+    background-color: #ff69b4; /* Rosa choque para o botão */
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+    outline: none; /* Remove o contorno azul ao clicar */
+}
+
+#nextPageButton:hover {
+    background-color: #e91e63; /* Cor mais escura ao passar o mouse */
+    transform: translateY(-3px); /* Leve efeito de "flutuar" */
+}
+
+#nextPageButton:active {
+    transform: translateY(0); /* Volta ao normal ao clicar */
+    box-shadow: 0 2px 8px rgba(255, 105, 180, 0.4);
+}
+
+/* Media Queries para Responsividade (melhor em telas menores) */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+
+    .content-section {
+        flex-direction: column; /* Imagem e texto empilham em telas pequenas */
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .text-area h2 {
+        font-size: 1.5em;
+    }
+
+    #nextPageButton {
+        padding: 12px 25px;
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2em;
+    }
+    .hero-content .subtitle {
+        font-size: 1em;
+    }
+    .text-area p {
+        font-size: 0.95em;
+    }
+}
