@@ -87,7 +87,6 @@
     align-items: center;
 }
 
-/* A linha onde a assinatura fica em cima */
 .linha-assinatura {
     width: 90%;
     height: 2px;
@@ -97,36 +96,30 @@
     left: 5%;
 }
 
-/* A prévia da assinatura (A MÁGICA) */
 #assinaturaPreview {
     font-family: 'Dancing Script', cursive; /* A FONTE DA ASSINATURA */
     font-size: 3.5em;
     color: #00008b; /* Azul de caneta */
     padding: 0 10px;
-    min-height: 1.2em; /* Altura mínima */
+    min-height: 1.2em; 
     position: relative;
-    z-index: 2; /* Fica em cima da linha */
-    
-    /* Para o texto não ser selecionável */
+    z-index: 2; 
     user-select: none;
-    
-    /* Placeholder em itálico */
     opacity: 0.6;
     font-style: italic;
+    word-break: break-all; /* Impede a assinatura de vazar */
 }
 #assinaturaPreview.assinada {
     opacity: 1;
     font-style: normal;
 }
 
-
 /* --- Estilos do Botão de Assinar --- */
 #sectionAssinar {
     margin-top: 30px;
-    padding: 0; /* Remove o padding da .navigation-section */
+    padding: 0; 
 }
 
-/* Sobrescreve o .btn-principal rosa para o verde de "sucesso" */
 #assinarBtn.btn-principal {
     background-color: #4CAF50; 
     box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4); 
@@ -138,4 +131,29 @@
 #assinarBtn.btn-principal:active {
     transform: translateY(0); 
     box-shadow: 0 2px 8px rgba(76, 175, 80, 0.4);
+}
+
+/* --- Media Queries (NOVO) --- */
+@media (max-width: 600px) {
+    .enigma-content {
+        padding: 15px;
+    }
+    .contrato-container {
+        padding: 20px; /* Menos padding */
+    }
+    .contrato-container h2 {
+        font-size: 2em;
+    }
+    .contrato-container p, .clausula-principal {
+        font-size: 1em;
+    }
+    .clausula-principal {
+        padding: 15px;
+    }
+    #assinaturaInput {
+        width: 100%; /* Ocupa todo o espaço */
+    }
+    #assinaturaPreview {
+        font-size: 2.5em; /* Fonte da assinatura menor */
+    }
 }

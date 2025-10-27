@@ -1,8 +1,8 @@
 /*
-  CSS para a página do enigma 3 (pista-2.html)
+  CSS para a página do enigma 2 (pista-2.html - linha do tempo)
 */
 
-/* --- ESTILOS DO CONTEÚDO (semelhante à pista-1) --- */
+/* --- ESTILOS DO CONTEÚDO --- */
 .enigma-content {
     padding: 30px;
     text-align: center;
@@ -22,18 +22,17 @@
 }
 
 /* --- ESTILOS DO NOVO ENIGMA (LINHA DO TEMPO) --- */
-
 #timeline-container {
     display: flex;
-    flex-wrap: wrap; /* Permite que os itens quebrem a linha em telas menores */
-    justify-content: center; /* Centraliza os itens */
-    gap: 20px; /* Espaço entre os itens */
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 20px; 
     margin-top: 30px;
 }
 
 .timeline-item {
-    width: 180px; /* Largura fixa para cada item */
-    border: 4px solid #dfe4ea; /* Borda neutra */
+    width: 180px; 
+    border: 4px solid #dfe4ea; 
     border-radius: 12px;
     padding: 12px;
     background-color: #f8f9fa;
@@ -45,14 +44,14 @@
 
 .timeline-item:hover {
     transform: scale(1.05);
-    border-color: #ff9a9e; /* Borda rosa no hover */
+    border-color: #ff9a9e; 
     box-shadow: 0 6px 15px rgba(0,0,0,0.1);
 }
 
 .timeline-item img {
     max-width: 100%;
-    height: 140px; /* Altura fixa para alinhar */
-    object-fit: cover; /* Garante que a imagem cubra a área */
+    height: 140px; 
+    object-fit: cover; 
     border-radius: 8px;
     margin-bottom: 10px;
 }
@@ -65,31 +64,20 @@
 }
 
 /* --- ESTILOS DE FEEDBACK (CONTROLADOS PELO JS) --- */
-
-/* Quando um item é clicado corretamente */
 .timeline-item.selecionado {
-    background-color: #f1f8e9; /* Verde clarinho */
-    border-color: #4CAF50; /* Borda verde */
+    background-color: #f1f8e9; 
+    border-color: #4CAF50; 
     transform: scale(1.02);
 }
-
-/* Quando a sequência está errada */
 .timeline-item.erro {
-    background-color: #fbe9e7; /* Vermelho clarinho */
-    border-color: #ff5252; /* Borda vermelha */
-    
-    /* Animação de "tremor" */
+    background-color: #fbe9e7; 
+    border-color: #ff5252; 
     animation: tremor 0.4s;
 }
-
-/* Quando o enigma é concluído */
 .timeline-item.desabilitado {
     opacity: 0.7;
-    pointer-events: none; /* Desativa cliques */
+    pointer-events: none; 
 }
-
-
-/* Animação de "tremor" para o erro */
 @keyframes tremor {
     0% { transform: translateX(0); }
     25% { transform: translateX(-5px); }
@@ -98,45 +86,46 @@
     100% { transform: translateX(0); }
 }
 
-
-/* **** ESTILOS DA SEÇÃO DE SUCESSO (COPIADO DA stylePista-1.css) **** Isto é necessário para o card de sucesso e o botão verde funcionarem.
-*/
+/* --- ESTILOS DA SEÇÃO DE SUCESSO (COPIADO) --- */
 #sectionBotaoSucesso {
-    display: none; 
-    flex-direction: column; 
-    align-items: center;
-    justify-content: center;
-    margin-top: 30px;
-    padding: 25px 30px;
-    background-color: #f1f8e9;  
-    border-radius: 10px;
-    border: 2px solid #c8e6c9;  
-    opacity: 0;
+    display: none; flex-direction: column; align-items: center;
+    justify-content: center; margin-top: 30px; padding: 25px 30px;
+    background-color: #f1f8e9; border-radius: 10px;
+    border: 2px solid #c8e6c9; opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 #sectionBotaoSucesso.visivel {
-    display: flex;
-    opacity: 1;
-    transform: translateY(0);
+    display: flex; opacity: 1; transform: translateY(0);
 }
 #sectionBotaoSucesso p {
-    font-size: 1.3em;
-    font-weight: 600;
-    color: #388e3c; 
-    margin: 0 0 20px 0; 
-    text-align: center;
-    line-height: 1.4;
+    font-size: 1.3em; font-weight: 600; color: #388e3c; 
+    margin: 0 0 20px 0; text-align: center; line-height: 1.4;
 }
 #sectionBotaoSucesso .btn-principal {
     background-color: #4CAF50; 
     box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4); 
 }
 #sectionBotaoSucesso .btn-principal:hover {
-    background-color: #388e3c; 
-    transform: translateY(-3px);
+    background-color: #388e3c; transform: translateY(-3px);
 }
 #sectionBotaoSucesso .btn-principal:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.4);
+    transform: translateY(0); box-shadow: 0 2px 8px rgba(76, 175, 80, 0.4);
+}
+
+
+/* --- Media Queries (NOVO) --- */
+@media (max-width: 480px) {
+    .enigma-content {
+        padding: 15px;
+    }
+    
+    .timeline-item {
+        width: 100%; /* << MUDANÇA IMPORTANTE */
+        max-width: 250px; /* Limita para não ficar gigante */
+    }
+    
+    #sectionBotaoSucesso p {
+        font-size: 1.1em;
+    }
 }

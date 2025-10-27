@@ -1,5 +1,5 @@
 /*
-  CSS para a página do enigma 2 (pista-clique.html)
+  CSS para a página do enigma 1 (pista-1.html - clique no mapa)
 */
 
 /* O conteúdo principal do enigma */
@@ -35,7 +35,7 @@
 
 /* A imagem do mapa do tesouro */
 #mapaDoTesouro {
-    max-width: 100%; 
+    max-width: 100%; /* Isso já a torna responsiva */
     height: auto;
     border-radius: 8px;
     cursor: crosshair; 
@@ -43,55 +43,44 @@
     user-select: none;       
 }
 
-/* **** ESTILOS DA SEÇÃO DE SUCESSO (A GRANDE MUDANÇA) **** */
-
-/* O container (card) de sucesso - oculto por padrão */
+/* **** ESTILOS DA SEÇÃO DE SUCESSO **** */
 #sectionBotaoSucesso {
-    display: none; /* JS vai mudar isso para 'flex' */
+    display: none; 
     flex-direction: column; 
     align-items: center;
     justify-content: center;
-    
     margin-top: 30px;
     padding: 25px 30px;
-    background-color: #f1f8e9;  /* Verde bem clarinho */
+    background-color: #f1f8e9;  
     border-radius: 10px;
-    border: 2px solid #c8e6c9;  /* Borda verde clara */
-    
-    /* Animação de aparição */
+    border: 2px solid #c8e6c9;  
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
-/* Classe que o JavaScript vai adicionar para MOSTRAR a seção
-*/
 #sectionBotaoSucesso.visivel {
     display: flex;
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Estilo para o parágrafo de sucesso */
 #sectionBotaoSucesso p {
     font-size: 1.3em;
     font-weight: 600;
-    color: #388e3c; /* Verde escuro (para contraste) */
-    margin: 0 0 20px 0; /* Remove margens antigas, adiciona inferior */
+    color: #388e3c; 
+    margin: 0 0 20px 0; 
     text-align: center;
     line-height: 1.4;
 }
 
-/* Estilizando o botão DENTRO da seção de sucesso.
-  Ele ainda usa .btn-principal, mas vamos sobrescrever a cor.
-*/
 #sectionBotaoSucesso .btn-principal {
-    background-color: #4CAF50; /* Cor de sucesso principal (verde) */
-    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4); /* Sombra verde */
+    background-color: #4CAF50; 
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4); 
 }
 
 #sectionBotaoSucesso .btn-principal:hover {
-    background-color: #388e3c; /* Verde mais escuro no hover */
+    background-color: #388e3c; 
     transform: translateY(-3px);
 }
 
@@ -100,10 +89,35 @@
     box-shadow: 0 2px 8px rgba(76, 175, 80, 0.4);
 }
 
-/* --- Media Queries --- */
-
+/* --- Media Queries (NOVO) --- */
 @media (max-width: 768px) {
+    .enigma-content {
+        padding: 20px; /* Menos padding */
+    }
+    
     #sectionBotaoSucesso p {
         font-size: 1.1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .enigma-content {
+        padding: 15px; /* Menos padding ainda */
+    }
+    
+    .enigma-content h2 {
+        font-size: 1.5em;
+    }
+    
+    .enigma-content p {
+        font-size: 1em;
+    }
+    
+    .image-map-container {
+        padding: 5px; /* Menos padding ao redor da imagem */
+    }
+    
+    #sectionBotaoSucesso {
+        padding: 15px 20px;
     }
 }

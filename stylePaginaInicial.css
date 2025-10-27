@@ -15,7 +15,7 @@ body {
     line-height: 1.6;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Alinha ao topo em telas menores */
     min-height: 100vh; /* Ocupa a altura total da viewport */
     padding: 20px;
 }
@@ -25,7 +25,7 @@ body {
     border-radius: 15px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
     max-width: 1000px;
-    width: 100%;
+    width: 100%; /* Garante que não ultrapasse a tela */
     overflow: hidden; /* Garante que os cantos arredondados sejam respeitados */
     display: flex;
     flex-direction: column;
@@ -97,30 +97,7 @@ body {
     padding: 20px 30px 40px;
 }
 
-#nextPageButton {
-    background-color: #ff69b4; /* Rosa choque para o botão */
-    color: white;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 30px;
-    font-size: 1.2em;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
-    outline: none; /* Remove o contorno azul ao clicar */
-}
-
-#nextPageButton:hover {
-    background-color: #e91e63; /* Cor mais escura ao passar o mouse */
-    transform: translateY(-3px); /* Leve efeito de "flutuar" */
-}
-
-#nextPageButton:active {
-    transform: translateY(0); /* Volta ao normal ao clicar */
-    box-shadow: 0 2px 8px rgba(255, 105, 180, 0.4);
-}
-
-
+/* O Botão Principal (Arredondado e Bonito) */
 .btn-principal {
     /* --- O ARREDONDAMENTO VEM DAQUI --- */
     border-radius: 30px; /* Cria o formato de "pílula" */
@@ -160,14 +137,24 @@ body {
     box-shadow: 0 2px 8px rgba(255, 105, 180, 0.4);
 }
 
-/* Media Queries para Responsividade (melhor em telas menores) */
+/*
+ ======================================================
+  MEDIA QUERIES (A MÁGICA PARA O MOBILE)
+ ======================================================
+*/
+
+/* Para Tablets e Celulares Maiores (até 768px) */
 @media (max-width: 768px) {
+    body {
+        padding: 10px; /* Menos espaço nas laterais */
+    }
+
     .hero-content h1 {
         font-size: 2.5em;
     }
 
     .content-section {
-        flex-direction: column; /* Imagem e texto empilham em telas pequenas */
+        flex-direction: column; /* Imagem e texto empilham */
         padding: 20px;
         gap: 20px;
     }
@@ -176,20 +163,61 @@ body {
         font-size: 1.5em;
     }
 
-    #nextPageButton {
+    .btn-principal {
         padding: 12px 25px;
         font-size: 1.1em;
     }
 }
 
+/* Para Celulares Pequenos (até 480px) */
 @media (max-width: 480px) {
+    body {
+        padding: 5px; /* Quase sem espaço */
+    }
+    
+    .container {
+        border-radius: 10px; /* Borda menor */
+    }
+    
+    .hero-section {
+        padding: 30px 20px;
+    }
+
     .hero-content h1 {
         font-size: 2em;
     }
     .hero-content .subtitle {
         font-size: 1em;
     }
+    
+    .content-section, .navigation-section {
+        padding: 15px; /* Menos padding interno */
+    }
+    
     .text-area p {
         font-size: 0.95em;
     }
+}
+
+#nextPageButton {
+    background-color: #ff69b4; /* Rosa choque para o botão */
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+    outline: none; /* Remove o contorno azul ao clicar */
+}
+
+#nextPageButton:hover {
+    background-color: #e91e63; /* Cor mais escura ao passar o mouse */
+    transform: translateY(-3px); /* Leve efeito de "flutuar" */
+}
+
+#nextPageButton:active {
+    transform: translateY(0); /* Volta ao normal ao clicar */
+    box-shadow: 0 2px 8px rgba(255, 105, 180, 0.4);
 }
