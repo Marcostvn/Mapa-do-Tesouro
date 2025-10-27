@@ -1,5 +1,6 @@
 /*
-  CSS para a página do enigma 4 (pista-3.html)
+  CSS para a página do enigma 3 (pista-3.html - quebra-cabeça)
+  Versão Refatorada (Mobile-First)
 */
 
 /* --- ESTILOS DO CONTEÚDO (semelhante aos outros) --- */
@@ -16,17 +17,33 @@
     font-size: 1.1em;
     color: #555;
     margin-bottom: 20px;
-    max-width: 800px; /* Um pouco mais largo para o jogo */
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
 }
 
 /* --- ESTILOS DO QUEBRA-CABEÇA --- */
 
-/* Defina o tamanho da sua peça aqui */
+/* Definição das variáveis do Quebra-Cabeça (Mobile-First)
+  Por padrão, o tabuleiro ocupa 92% da largura da tela.
+*/
 :root {
-    --piece-size: 100px; /* Tamanho de cada peça (100px x 100px) */
-    --board-size: calc(var(--piece-size) * 4); /* Tamanho total (400px x 400px) */
+    --board-size: 92vw; /* 92% da largura da tela */
+    --piece-size: calc(var(--board-size) / 4); /* Peça é 1/4 do tabuleiro */
+    --bank-gap: 3px;
+    --bank-padding: 5px;
+}
+
+/* Media Query para telas maiores (Desktop)
+  Se a tela for maior que 640px, muda para tamanhos fixos.
+*/
+@media (min-width: 640px) {
+    :root {
+        --piece-size: 100px; /* Tamanho fixo no desktop */
+        --board-size: calc(var(--piece-size) * 4); /* 400px */
+        --bank-gap: 5px;
+        --bank-padding: 10px;
+    }
 }
 
 .puzzle-container {
@@ -35,7 +52,7 @@
     align-items: flex-start;
     gap: 30px;
     margin-top: 30px;
-    flex-wrap: wrap; /* Permite quebrar linha em telas menores */
+    flex-wrap: wrap; 
 }
 
 /* 1. O Tabuleiro (Grid 4x4) */
@@ -50,48 +67,66 @@
     box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
+/* 2. O Quadrado (Drop Zone) - COM CORREÇÃO */
 .drop-zone {
     width: var(--piece-size);
     height: var(--piece-size);
-    border: 1px dashed #aaa;
-    box-sizing: border-box; /* Garante que a borda não aumente o tamanho */
+    
+    /* CORREÇÃO: Garante que padding/border não aumentem o tamanho */
+    box-sizing: border-box; 
+    
+    /* CORREÇÃO: 'outline' não ocupa espaço de layout, ao contrário de 'border' */
+    outline: 1px dashed #aaa; 
+    
     color: #ccc;
-    font-size: 1.8em;
+    font-size: 1.2em; /* Menor para caber no mobile */
     display: flex;
     justify-content: center;
     align-items: center;
     transition: background-color 0.2s;
 }
 
-/* 2. O Banco de Peças */
-#piece-bank {
-    display: grid; /* MUDANÇA 1: Usar grid */
-    grid-template-columns: repeat(4, var(--piece-size)); /* MUDANÇA 2: Definir 4 colunas */
-    grid-template-rows: repeat(4, var(--piece-size));    /* MUDANÇA 3: Definir 4 linhas */
-    
-    /* As linhas abaixo definem a aparência do banco */
-    border: 2px dashed #ff9a9e;
-    padding: 10px; /* Um padding ao redor da grade de peças */
-    background-color: #fff8f9;
-    gap: 5px; /* O espaço entre as peças */
-    
-    /* Removemos as larguras fixas, a grade agora define o próprio tamanho */
+/* Ajusta o tamanho da fonte do número no desktop */
+@media (min-width: 640px) {
+    .drop-zone {
+        font-size: 1.8em;
+    }
 }
 
-/* 3. As Peças (A PARTE MAIS IMPORTANTE) */
+
+/* 3. O Banco de Peças - COM CORREÇÃO */
+#piece-bank {
+    display: grid; /* CORREÇÃO: Usa grid para garantir 4x4 */
+    grid-template-columns: repeat(4, var(--piece-size)); 
+    grid-template-rows: repeat(4, var(--piece-size));    
+    
+    border: 2px dashed #ff9a9e;
+    background-color: #fff8f9;
+    
+    /* Usa as variáveis de espaçamento */
+    padding: var(--bank-padding); 
+    gap: var(--bank-gap); 
+}
+
+/* 4. As Peças do Quebra-Cabeça */
 .puzzle-piece {
     width: var(--piece-size);
     height: var(--piece-size);
+    
+    /* CORREÇÃO: Garante que a peça tenha o tamanho exato */
     box-sizing: border-box;
+    
     cursor: grab;
     transition: all 0.2s;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     
     /* **********************************************
-      *** MUDE A URL DA IMAGEM AQUI ***
+      *** LEMBRE-SE DE MUDAR A URL DA IMAGEM   ***
+      *** O '../' sobe da pasta 'css' para     ***
+      *** depois entrar na pasta 'assets'.     ***
       **********************************************
     */
-    background-image: url('../assets/quebraCabeça.jpeg'); /* <-- BOTE SUA FOTO AQUI */
+    background-image: url('../assets/quebraCabeça.jpeg'); 
     
     /* A imagem é 4x maior que a peça (400%) */
     background-size: var(--board-size) var(--board-size); 
@@ -99,7 +134,6 @@
 
 
 /* --- LÓGICA DAS POSIÇÕES (NÃO MEXA AQUI) --- */
-/* Cada ID corresponde a uma posição da imagem */
 #p-1  { background-position: 0% 0%; }
 #p-2  { background-position: 33.33% 0%; }
 #p-3  { background-position: 66.66% 0%; }
@@ -118,55 +152,82 @@
 #p-16 { background-position: 100% 100%; }
 
 
-/* --- ESTILOS DE FEEDBACK (CONTROLADOS PELO JS) --- */
+/* --- ESTILOS DE FEEDBACK (JS) - COM CORREÇÃO --- */
 
 .puzzle-piece.dragging {
-    cursor: grabbing;
+    cursor: grabbing; 
     opacity: 0.5;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3); 
     transform: scale(1.1);
 }
 
 .drop-zone.drag-over {
-    background-color: #c8e6c9; /* Verde claro ao arrastar por cima */
-    border: 2px solid #4CAF50;
+    background-color: #c8e6c9; 
+    /* CORREÇÃO: Usa outline */
+    outline: 2px solid #4CAF50;
 }
 
 .drop-zone.filled {
-    border: none;
-    padding: 0;
-    color: transparent; /* Esconde o número */
+    padding: 0; 
+    background-color: transparent; /* Fica invisível */
+    /* CORREÇÃO: Remove o outline ao preencher */
+    outline: none; 
 }
 
 .puzzle-piece.correct {
-    box-shadow: none;
+    box-shadow: none; 
     cursor: default;
 }
 
 
-/* **** ESTILOS DA SEÇÃO DE SUCESSO (COPIADO DA stylePista-1.css) **** */
+/* **** ESTILOS DA SEÇÃO DE SUCESSO (COPIADO DOS OUTROS ARQUIVOS) **** */
 #sectionBotaoSucesso {
-    display: none; flex-direction: column; align-items: center;
-    justify-content: center; margin-top: 30px; padding: 25px 30px;
-    background-color: #f1f8e9; border-radius: 10px;
-    border: 2px solid #c8e6c9; opacity: 0;
+    display: none; 
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center; 
+    margin-top: 30px; 
+    padding: 25px 30px;
+    background-color: #f1f8e9; 
+    border-radius: 10px;
+    border: 2px solid #c8e6c9; 
+    opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 #sectionBotaoSucesso.visivel {
-    display: flex; opacity: 1; transform: translateY(0);
+    display: flex; 
+    opacity: 1; 
+    transform: translateY(0);
 }
 #sectionBotaoSucesso p {
-    font-size: 1.3em; font-weight: 600; color: #388e3c; 
-    margin: 0 0 20px 0; text-align: center; line-height: 1.4;
+    font-size: 1.3em; 
+    font-weight: 600; 
+    color: #388e3c; 
+    margin: 0 0 20px 0; 
+    text-align: center; 
+    line-height: 1.4;
 }
 #sectionBotaoSucesso .btn-principal {
     background-color: #4CAF50; 
     box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4); 
 }
 #sectionBotaoSucesso .btn-principal:hover {
-    background-color: #388e3c; transform: translateY(-3px);
+    background-color: #388e3c; 
+    transform: translateY(-3px);
 }
 #sectionBotaoSucesso .btn-principal:active {
-    transform: translateY(0); box-shadow: 0 2px 8px rgba(76, 175, 80, 0.4);
+    transform: translateY(0); 
+    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.4);
+}
+
+/* --- Media Queries Finais para Texto de Sucesso --- */
+@media (max-width: 600px) {
+    .enigma-content {
+        padding: 15px;
+    }
+    
+    #sectionBotaoSucesso p {
+        font-size: 1.1em;
+    }
 }
