@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 botaoProximaPista.addEventListener('click', function() {
                     // Redireciona para a próxima página de enigma
                     // Lembre-se de criar este arquivo! Ex: 'pista-codigo-fonte.html'
-                    window.location.href = '/html/pista-2.html'; // <<< MUDE AQUI PARA O NOME DA SUA PRÓXIMA PÁGINA
+                    window.location.href = '../html/pista-2.html'; // <<< MUDE AQUI PARA O NOME DA SUA PRÓXIMA PÁGINA
                 });
             }
 
