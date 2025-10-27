@@ -1,0 +1,109 @@
+/*
+  CSS para a página do enigma 2 (pista-clique.html)
+*/
+
+/* O conteúdo principal do enigma */
+.enigma-content {
+    padding: 30px;
+    text-align: center;
+}
+
+.enigma-content h2 {
+    color: #e91e63; /* Rosa do tema */
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
+
+.enigma-content p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 20px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* O container da imagem */
+.image-map-container {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #fdfdfd;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    display: inline-block; 
+}
+
+/* A imagem do mapa do tesouro */
+#mapaDoTesouro {
+    max-width: 100%; 
+    height: auto;
+    border-radius: 8px;
+    cursor: crosshair; 
+    -webkit-user-drag: none; 
+    user-select: none;       
+}
+
+/* **** ESTILOS DA SEÇÃO DE SUCESSO (A GRANDE MUDANÇA) **** */
+
+/* O container (card) de sucesso - oculto por padrão */
+#sectionBotaoSucesso {
+    display: none; /* JS vai mudar isso para 'flex' */
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    
+    margin-top: 30px;
+    padding: 25px 30px;
+    background-color: #f1f8e9;  /* Verde bem clarinho */
+    border-radius: 10px;
+    border: 2px solid #c8e6c9;  /* Borda verde clara */
+    
+    /* Animação de aparição */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+/* Classe que o JavaScript vai adicionar para MOSTRAR a seção
+*/
+#sectionBotaoSucesso.visivel {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Estilo para o parágrafo de sucesso */
+#sectionBotaoSucesso p {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #388e3c; /* Verde escuro (para contraste) */
+    margin: 0 0 20px 0; /* Remove margens antigas, adiciona inferior */
+    text-align: center;
+    line-height: 1.4;
+}
+
+/* Estilizando o botão DENTRO da seção de sucesso.
+  Ele ainda usa .btn-principal, mas vamos sobrescrever a cor.
+*/
+#sectionBotaoSucesso .btn-principal {
+    background-color: #4CAF50; /* Cor de sucesso principal (verde) */
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4); /* Sombra verde */
+}
+
+#sectionBotaoSucesso .btn-principal:hover {
+    background-color: #388e3c; /* Verde mais escuro no hover */
+    transform: translateY(-3px);
+}
+
+#sectionBotaoSucesso .btn-principal:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.4);
+}
+
+/* --- Media Queries --- */
+
+@media (max-width: 768px) {
+    #sectionBotaoSucesso p {
+        font-size: 1.1em;
+    }
+}

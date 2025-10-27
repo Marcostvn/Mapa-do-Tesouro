@@ -1,0 +1,57 @@
+/* Importa a fonte do "diário" */
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400&display=swap');
+
+.enigma-content {
+    padding: 30px;
+    text-align: center;
+}
+
+.enigma-content h2 {
+    color: #e91e63;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
+
+.enigma-content p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Estilo da Página do Diário --- */
+.diario-pagina {
+    font-family: 'Kalam', cursive; /* A FONTE DO DIÁRIO */
+    font-weight: 400;
+    font-size: 1.3em;
+    color: #222;
+    background-color: #fffdf9; /* Papel cor de creme */
+    border: 1px solid #eee;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border-radius: 5px;
+    
+    max-width: 750px;
+    margin: 25px auto; /* Centraliza */
+    padding: 30px 35px;
+    
+    text-align: left;
+    line-height: 1.9;
+}
+
+.diario-pagina h3 {
+    font-family: 'Poppins', sans-serif; /* A data em fonte normal */
+    font-weight: 600;
+    color: #999;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+    border-bottom: 1px dashed #ddd;
+    padding-bottom: 10px;
+}
+
+.diario-pagina p {
+    font-size: 1em; /* Relativo ao 1.3em do container */
+    color: #333;
+    margin-bottom: 15px;
+}

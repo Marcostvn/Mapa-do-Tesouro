@@ -1,0 +1,141 @@
+/* Importa a fonte para a assinatura */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+/* --- Estilos do Conteúdo (semelhante aos outros) --- */
+.enigma-content {
+    padding: 30px;
+    text-align: center;
+}
+
+/* --- Estilos do Contrato --- */
+.contrato-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #fffaf5; /* Cor de pergaminho/papel */
+    border: 2px solid #e0cda9; /* Borda cor de papel antigo */
+    border-radius: 10px;
+    padding: 30px 40px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    text-align: left;
+}
+
+.contrato-container h2 {
+    text-align: center;
+    color: #a0522d; /* Cor marrom (siena) */
+    font-family: 'Indie Flower', cursive; /* Reusa a fonte do título */
+    font-size: 2.5em;
+    margin-bottom: 25px;
+}
+
+.contrato-container p {
+    font-size: 1.1em;
+    color: #444;
+    margin-bottom: 20px;
+    line-height: 1.7;
+}
+
+.clausula-principal {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #333;
+    background-color: #fdfdfd;
+    border: 1px dashed #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 30px 0;
+    text-align: center;
+    font-style: italic;
+}
+
+/* --- Estilos da Assinatura --- */
+.assinatura-box {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.assinatura-box label {
+    font-size: 1em;
+    font-weight: 600;
+    color: #555;
+    display: block;
+    margin-bottom: 15px;
+}
+
+#assinaturaInput {
+    width: 80%;
+    padding: 10px 15px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#assinaturaInput:focus {
+    border-color: #ff9a9e;
+    box-shadow: 0 0 8px rgba(255, 154, 158, 0.4);
+    outline: none;
+}
+
+.assinatura-preview-wrapper {
+    margin-top: 30px;
+    position: relative;
+    padding-bottom: 10px;
+    min-height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* A linha onde a assinatura fica em cima */
+.linha-assinatura {
+    width: 90%;
+    height: 2px;
+    background-color: #555;
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+}
+
+/* A prévia da assinatura (A MÁGICA) */
+#assinaturaPreview {
+    font-family: 'Dancing Script', cursive; /* A FONTE DA ASSINATURA */
+    font-size: 3.5em;
+    color: #00008b; /* Azul de caneta */
+    padding: 0 10px;
+    min-height: 1.2em; /* Altura mínima */
+    position: relative;
+    z-index: 2; /* Fica em cima da linha */
+    
+    /* Para o texto não ser selecionável */
+    user-select: none;
+    
+    /* Placeholder em itálico */
+    opacity: 0.6;
+    font-style: italic;
+}
+#assinaturaPreview.assinada {
+    opacity: 1;
+    font-style: normal;
+}
+
+
+/* --- Estilos do Botão de Assinar --- */
+#sectionAssinar {
+    margin-top: 30px;
+    padding: 0; /* Remove o padding da .navigation-section */
+}
+
+/* Sobrescreve o .btn-principal rosa para o verde de "sucesso" */
+#assinarBtn.btn-principal {
+    background-color: #4CAF50; 
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4); 
+}
+#assinarBtn.btn-principal:hover {
+    background-color: #388e3c; 
+    transform: translateY(-3px);
+}
+#assinarBtn.btn-principal:active {
+    transform: translateY(0); 
+    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.4);
+}

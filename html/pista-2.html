@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enigma 2: A Linha do Tempo</title>
+    
+    <link rel="stylesheet" href="/stylePaginaInicial.css"> 
+    
+    <link rel="stylesheet" href="/css/stylePista-2.css"> 
+</head>
+<body>
+    <div class="container">
+        <header class="hero-section">
+            <div class="hero-content">
+                <h1 id="main-title">Enigma 2: A Linha do Tempo ⏳</h1>
+            </div>
+        </header>
+
+        <main class="enigma-content">
+            <h2>Organize Nossas Memórias</h2>
+            <p>
+                Capitã, nosso tesouro está espalhado pelo tempo! Para encontrar a próxima pista,
+                você precisa colocar nossas memórias em ordem.
+            </p>
+            <p>
+                <b>Clique nas imagens na ordem cronológica correta!</b>
+            </p>
+
+            <div id="timeline-container">
+                
+                <div class="timeline-item" data-ordem="3">
+                    <img src="/assets/primeiroSãoJoão.jpeg" alt="">
+                    <p>Primeiro São João</p>
+                </div>
+                
+                <div class="timeline-item" data-ordem="1">
+                    <img src="/assets/pedidoDeNamoro.jpeg" alt="">
+                    <p>Pedido de Namoro</p>
+                </div>
+                
+                <div class="timeline-item" data-ordem="5">
+                    <img src="/assets/primeiraLevadaAoHospital.jpeg" alt="">
+                    <p>Primeira levada ao hospital</p>
+                </div>
+                
+                <div class="timeline-item" data-ordem="2">
+                    <img src="/assets/primeiraViagem.jpeg" alt="">
+                    <p>Primeira Viagem</p>
+                </div>
+                
+                <div class="timeline-item" data-ordem="4">
+                    <img src="/assets/nascimentoDoTotos.jpeg" alt="">
+                    <p>Nascimento do Totos</p>
+                </div>
+                
+            </div>
+            
+            <section class="navigation-section" id="sectionBotaoSucesso">
+                <p>ORDEM CORRETA! ⚓<br>Você realmente lembra de tudo, Capitã!</p>
+                <button id="botaoProximaPista" class="btn-principal">
+                    Ir para a próxima fase!
+                </button>
+            </section>
+            
+        </main>
+    </div>
+
+    <script src="/js/scriptPista-2.js"></script>
+</body>
+</html>

@@ -120,6 +120,46 @@ body {
     box-shadow: 0 2px 8px rgba(255, 105, 180, 0.4);
 }
 
+
+.btn-principal {
+    /* --- O ARREDONDAMENTO VEM DAQUI --- */
+    border-radius: 30px; /* Cria o formato de "pílula" */
+    
+    /* --- ESTÉTICA BÁSICA --- */
+    border: none; /* Remove a borda padrão feia */
+    padding: 15px 30px; /* Espaçamento interno */
+    font-size: 1.2em;
+    font-weight: 600; /* Deixa a fonte mais cheia */
+    color: white; /* Cor do texto */
+    cursor: pointer;
+    
+    /* --- COR INICIAL (ROSA) --- */
+    background-color: #ff69b4; /* Cor rosa principal */
+    
+    /* --- EFEITOS E SOMBRAS --- */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Sombra leve no texto */
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4); /* Sombra rosa */
+    
+    /* --- TRANSIÇÕES SUAVES --- */
+    transition: all 0.3s ease;
+    
+    outline: none; /* Remove o contorno azul ao clicar */
+}
+
+.btn-principal:hover {
+    background-color: #e91e63; /* Cor mais escura ao passar o mouse */
+    
+    /* Efeito de "flutuar" */
+    transform: translateY(-3px); 
+    
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.5); /* Sombra mais forte */
+}
+
+.btn-principal:active {
+    transform: translateY(0); /* Volta ao normal ao clicar */
+    box-shadow: 0 2px 8px rgba(255, 105, 180, 0.4);
+}
+
 /* Media Queries para Responsividade (melhor em telas menores) */
 @media (max-width: 768px) {
     .hero-content h1 {

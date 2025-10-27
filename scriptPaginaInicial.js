@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (nextPageButton) {
         nextPageButton.addEventListener('click', function() {
-            window.location.href = 'pista-1.html'; 
+            window.location.href = '/html/pista-1.html'; 
         });
     }
 });

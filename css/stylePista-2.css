@@ -1,0 +1,142 @@
+/*
+  CSS para a página do enigma 3 (pista-2.html)
+*/
+
+/* --- ESTILOS DO CONTEÚDO (semelhante à pista-1) --- */
+.enigma-content {
+    padding: 30px;
+    text-align: center;
+}
+.enigma-content h2 {
+    color: #e91e63;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
+.enigma-content p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 20px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- ESTILOS DO NOVO ENIGMA (LINHA DO TEMPO) --- */
+
+#timeline-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens quebrem a linha em telas menores */
+    justify-content: center; /* Centraliza os itens */
+    gap: 20px; /* Espaço entre os itens */
+    margin-top: 30px;
+}
+
+.timeline-item {
+    width: 180px; /* Largura fixa para cada item */
+    border: 4px solid #dfe4ea; /* Borda neutra */
+    border-radius: 12px;
+    padding: 12px;
+    background-color: #f8f9fa;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.timeline-item:hover {
+    transform: scale(1.05);
+    border-color: #ff9a9e; /* Borda rosa no hover */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.timeline-item img {
+    max-width: 100%;
+    height: 140px; /* Altura fixa para alinhar */
+    object-fit: cover; /* Garante que a imagem cubra a área */
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.timeline-item p {
+    font-weight: 600;
+    color: #333;
+    font-size: 1em;
+    margin-bottom: 0;
+}
+
+/* --- ESTILOS DE FEEDBACK (CONTROLADOS PELO JS) --- */
+
+/* Quando um item é clicado corretamente */
+.timeline-item.selecionado {
+    background-color: #f1f8e9; /* Verde clarinho */
+    border-color: #4CAF50; /* Borda verde */
+    transform: scale(1.02);
+}
+
+/* Quando a sequência está errada */
+.timeline-item.erro {
+    background-color: #fbe9e7; /* Vermelho clarinho */
+    border-color: #ff5252; /* Borda vermelha */
+    
+    /* Animação de "tremor" */
+    animation: tremor 0.4s;
+}
+
+/* Quando o enigma é concluído */
+.timeline-item.desabilitado {
+    opacity: 0.7;
+    pointer-events: none; /* Desativa cliques */
+}
+
+
+/* Animação de "tremor" para o erro */
+@keyframes tremor {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+
+/* **** ESTILOS DA SEÇÃO DE SUCESSO (COPIADO DA stylePista-1.css) **** Isto é necessário para o card de sucesso e o botão verde funcionarem.
+*/
+#sectionBotaoSucesso {
+    display: none; 
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    padding: 25px 30px;
+    background-color: #f1f8e9;  
+    border-radius: 10px;
+    border: 2px solid #c8e6c9;  
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+#sectionBotaoSucesso.visivel {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
+#sectionBotaoSucesso p {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #388e3c; 
+    margin: 0 0 20px 0; 
+    text-align: center;
+    line-height: 1.4;
+}
+#sectionBotaoSucesso .btn-principal {
+    background-color: #4CAF50; 
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4); 
+}
+#sectionBotaoSucesso .btn-principal:hover {
+    background-color: #388e3c; 
+    transform: translateY(-3px);
+}
+#sectionBotaoSucesso .btn-principal:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.4);
+}
