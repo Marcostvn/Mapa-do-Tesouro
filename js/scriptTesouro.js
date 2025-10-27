@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
         alert('Contrato Aceito! 📜✒️ \nObrigado por recomeçar isso comigo, Mozas. \n\nVocê acaba de desbloquear o segundo tesouro...');
 
         // Redireciona para a página final do diário
-        window.location.href = '/html/diario.html'; // <<< ESTE É O SEGUNDO TESOURO
+        window.location.href = '../html/diario.html'; // <<< ESTE É O SEGUNDO TESOURO
     });
 
 });

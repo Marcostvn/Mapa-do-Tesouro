@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (botaoProximaPista) {
             botaoProximaPista.addEventListener('click', function() {
                 // MUDE AQUI para o nome da sua PRÓXIMA pista (ex: 'pista-3.html')
-                window.location.href = '/html/pista-3.html'; 
+                window.location.href = '../html/pista-3.html'; 
             });
         }
     }

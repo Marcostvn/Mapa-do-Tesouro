@@ -91,7 +91,7 @@
       *** MUDE A URL DA IMAGEM AQUI ***
       **********************************************
     */
-    background-image: url('/assets/quebraCabeça.jpeg'); /* <-- BOTE SUA FOTO AQUI */
+    background-image: url('../assets/quebraCabeça.jpeg'); /* <-- BOTE SUA FOTO AQUI */
     
     /* A imagem é 4x maior que a peça (400%) */
     background-size: var(--board-size) var(--board-size); 

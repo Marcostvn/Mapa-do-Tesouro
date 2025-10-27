@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (botaoProximaPista) {
             botaoProximaPista.addEventListener('click', function() {
                 // MUDE AQUI para a sua página final do tesouro!
-                window.location.href = '/html/tesouro.html'; 
+                window.location.href = '../html/tesouro.html'; 
             });
         }
         alert('Muito bom capitã 🏴‍☠️ esse dia foi louco!');
