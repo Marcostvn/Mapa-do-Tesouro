@@ -54,12 +54,11 @@
     font-size: 1em; /* Relativo ao 1.3em do container */
     color: #333;
     margin-bottom: 15px;
-    /* Permite quebra de palavras longas */
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
 
-/* --- Media Queries (NOVO) --- */
+/* --- Media Queries (Mobile) --- */
 @media (max-width: 600px) {
     .enigma-content {
         padding: 15px;
@@ -74,4 +73,23 @@
     .diario-pagina h3 {
         font-size: 0.8em;
     }
+}
+
+/* **********************************************
+  *** ESTILO ADICIONADO AQUI ***
+  **********************************************
+  Estilos para centralizar o novo link-botão
+*/
+#sectionAlbumButton {
+    text-align: center;
+    padding: 20px 0 30px 0; /* Espaçamento */
+}
+
+#sectionAlbumButton .btn-principal {
+    display: inline-block; /* Links são 'inline' por padrão, isso corrige o padding */
+    text-decoration: none; /* Remove o sublinhado do link */
+    
+    /* Muda a cor do botão para o verde final, se preferir */
+    /* background-color: #4CAF50; */
+    /* box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4); */
 }

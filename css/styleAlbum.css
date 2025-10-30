@@ -1,0 +1,101 @@
+/*
+  CSS para a página final (album.html)
+*/
+
+.enigma-content {
+    padding: 30px;
+    text-align: center;
+}
+
+.enigma-content h2 {
+    color: #e91e63;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
+
+.enigma-content p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Estilo da Galeria de Fotos --- */
+#gallery-grid {
+    display: grid;
+    
+    /* MÁGICA DA RESPONSIVIDADE:
+      Cria colunas automaticamente.
+      - Tenta encaixar colunas de 250px.
+      - Se sobrar espaço, estica elas (1fr).
+      - Em celular, só cabe 1 coluna, então empilha.
+    */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.gallery-item {
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    overflow: hidden; /* Garante que a imagem respeite a borda */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 300px; /* Altura fixa para todas as fotos */
+    object-fit: cover; /* Faz a imagem cobrir o espaço sem distorcer */
+    display: block; /* Remove espaço extra abaixo da imagem */
+}
+
+/* Efeito de "flutuar" no desktop */
+@media (min-width: 769px) {
+    .gallery-item:hover {
+        transform: scale(1.05) rotate(1deg);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+}
+
+
+/* --- Mensagem Final --- */
+.final-message {
+    margin-top: 60px;
+    padding: 30px;
+    background-color: #fff8f9;
+    border-radius: 10px;
+    border-top: 3px solid #ff9a9e;
+}
+
+.final-message p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.final-message h2 {
+    font-family: 'Indie Flower', cursive;
+    font-size: 2.8em;
+    color: #e91e63;
+}
+
+/* --- Media Queries (Mobile) --- */
+@media (max-width: 600px) {
+    .enigma-content {
+        padding: 15px;
+    }
+    
+    #gallery-grid {
+        gap: 15px;
+    }
+    
+    .gallery-item img {
+        height: 250px; /* Altura menor no mobile */
+    }
+    
+    .final-message h2 {
+        font-size: 2.2em;
+    }
+}

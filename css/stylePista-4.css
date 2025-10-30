@@ -1,0 +1,176 @@
+/*
+  CSS para a página do enigma 4 (pista-4.html - palavras)
+*/
+
+/* --- ESTILOS DO CONTEÚDO (semelhante aos outros) --- */
+.enigma-content {
+    padding: 30px;
+    text-align: center;
+}
+.enigma-content h2 {
+    color: #e91e63;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
+.enigma-content p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- ESTILOS DAS PALAVRAS-CRUZADAS --- */
+
+#crossword-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espaço entre cada palavra */
+    margin-top: 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.word-entry {
+    display: flex;
+    align-items: center;
+    background-color: #f8f9fa;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 15px;
+    gap: 15px;
+}
+
+.clue {
+    flex: 1; /* Ocupa o espaço disponível */
+    text-align: left;
+    font-size: 1em !important; /* Sobrescreve o P padrão */
+    color: #333 !important;
+    margin-bottom: 0 !important;
+    line-height: 1.4;
+}
+
+.word-grid {
+    display: flex;
+    gap: 4px; /* Espaço entre as caixas de letra */
+    align-items: center;
+}
+
+.char-input {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5em;
+    text-align: center;
+    text-transform: uppercase; /* Força maiúsculas */
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    transition: all 0.2s ease;
+}
+
+.char-input:focus {
+    border-color: #ff9a9e;
+    box-shadow: 0 0 8px rgba(255, 154, 158, 0.4);
+    outline: none;
+}
+
+/* --- ESTILOS DE FEEDBACK (CONTROLADOS PELO JS) --- */
+
+.char-input.correct {
+    background-color: #f1f8e9;
+    border-color: #4CAF50;
+    color: #388e3c;
+}
+
+.char-input.incorrect {
+    background-color: #fbe9e7;
+    border-color: #ff5252;
+    color: #c62828;
+}
+
+
+/* --- ESTILOS DA SEÇÃO DE SUCESSO (COPIADO) --- */
+/* Oculta por padrão */
+#sectionBotaoSucesso {
+    display: none; 
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center; 
+    margin-top: 30px; 
+    padding: 25px 30px;
+    background-color: #f1f8e9; 
+    border-radius: 10px;
+    border: 2px solid #c8e6c9; 
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+#sectionBotaoSucesso.visivel {
+    display: flex; 
+    opacity: 1; 
+    transform: translateY(0);
+}
+#sectionBotaoSucesso p {
+    font-size: 1.3em; 
+    font-weight: 600; 
+    color: #388e3c; 
+    margin: 0 0 20px 0; 
+    text-align: center; 
+    line-height: 1.4;
+}
+#sectionBotaoSucesso .btn-principal {
+    background-color: #4CAF50; 
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4); 
+}
+#sectionBotaoSucesso .btn-principal:hover {
+    background-color: #388e3c; 
+    transform: translateY(-3px);
+}
+#sectionBotaoSucesso .btn-principal:active {
+    transform: translateY(0); 
+    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.4);
+}
+
+/* --- Media Queries (Mobile) --- */
+@media (max-width: 600px) {
+    .enigma-content {
+        padding: 15px;
+    }
+
+    .word-entry {
+        flex-direction: column; /* Empilha a dica e os inputs */
+        align-items: flex-start;
+        padding: 12px;
+    }
+
+    .clue {
+        font-size: 0.95em !important;
+        margin-bottom: 10px !important; /* Adiciona espaço abaixo da dica */
+    }
+
+    .word-grid {
+        gap: 2px; /* Menos espaço entre as caixas */
+    }
+
+    .char-input {
+        width: 35px; /* Caixas menores */
+        height: 35px;
+        font-size: 1.2em;
+    }
+
+    #sectionBotaoSucesso p {
+        font-size: 1.1em;
+    }
+}
+
+.word-space {
+    width: 20px; /* Define a largura do seu espaço (ajuste se quiser) */
+    height: 40px; /* Mesma altura do .char-input (ajuste se for diferente) */
+    
+    /* No mobile, pode ser menor */
+    @media (max-width: 600px) {
+        height: 35px; /* Mesma altura do .char-input no mobile */
+        width: 15px; /* Espaço menor */
+    }
+}
